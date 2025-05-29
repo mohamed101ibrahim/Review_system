@@ -74,14 +74,14 @@
             </div>
         </div> --}}
 
-        {{-- Company Grid --}}
+
         @if(count($companies) > 0)
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-            <!-- Company Grid -->
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 @foreach ($companies as $company)
                     <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200">
-                        <!-- Company Logo -->
+
                         <div class="bg-gray-50 p-4 flex justify-center">
                             @if ($company->logo_url)
                                 <img src="{{ $company->logo_url }}" alt="{{ $company->name }} logo"
@@ -93,7 +93,6 @@
                             @endif
                         </div>
 
-                        <!-- Company Info -->
                         <div class="p-4">
                             <div class="flex justify-between items-start mb-2">
                                 <h2 class="text-md font-semibold text-gray-800">{{ $company->name }}</h2>
@@ -105,7 +104,7 @@
                             </p>
 
                             <div class="flex justify-between items-center border-t border-gray-100 pt-3">
-                                <a href="{{ route('company.show', $company) }}"
+                                <a href="{{ route('company.show', $company->id) }}"
                                    class="text-blue-600 hover:text-blue-800 text-sm">
                                     View Details
                                 </a>
@@ -121,7 +120,6 @@
                 @endforeach
             </div>
 
-            <!-- Pagination -->
             <div class="mt-8 flex justify-center">
                 <nav class="inline-flex rounded-md shadow-sm -space-x-px">
                     <a href="#" class="px-3 py-2 rounded-l-md border border-gray-200 bg-white text-gray-500 hover:bg-gray-50">
@@ -137,7 +135,6 @@
             </div>
         </div>
         @else
-            {{-- Empty State --}}
             <div class="bg-white rounded-xl shadow-sm p-8 text-center">
                 <div class="mx-auto w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mb-4">
                     <i class="fas fa-building text-3xl text-gray-400"></i>

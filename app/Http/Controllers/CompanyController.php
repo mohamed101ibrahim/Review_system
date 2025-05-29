@@ -33,18 +33,17 @@ class CompanyController extends Controller
     {
 
         $company = $request->StoreCompany();
-         // dd($company);
-        return response([
-            'message' => 'Company "' . $company->name . '" created successfully.',
-        ]);
+        $companies = Company::all();
+        return view('Company.index', compact('companies'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Company $company)
     {
-        //
+        // dd($company);
+        return view('company.show', compact('company'));
     }
 
     /**
@@ -66,8 +65,12 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Company $company)
     {
-        //
+        $company->delete();
+
+        return redirect()->route('company.index')
+                         ->with('success', 'Company deleted successfully.');
     }
+
 }
