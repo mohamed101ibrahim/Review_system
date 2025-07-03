@@ -67,8 +67,9 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        $company->delete();
 
+        $company->delete();
+        // dd($company);
         return redirect()->route('company.index')
                          ->with('success', 'Company deleted successfully.');
     }

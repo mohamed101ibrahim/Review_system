@@ -83,12 +83,11 @@
             </button>
                 </form>
 
+                <a href="{{ route('company.campaign.index', $company->id) }}"
+                    class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700">
+                    Campaigns
+                 </a>
 
-                {{-- Campaign --}}
-                {{-- <a href="{{ route('company.campaign', $company->id) }}"
-                   class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700">
-                    📢 Campaign
-                </a> --}}
             </div>
 
         </div>
